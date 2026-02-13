@@ -244,6 +244,16 @@ app.post('/api/requests/:id/respond', async (req, res) => {
   }
 });
 
+app.get('/health',(req,res)=>{
+  try{
+    return res.status(200).json({message:"server is working fine"})
+  }catch{
+    return res.status(500).json({message:"server not working oopsies"})
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
